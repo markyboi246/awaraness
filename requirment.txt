@@ -1,0 +1,13 @@
+FRONTEND: 
+
+
+Mobile Application IOS 
+
+Language: 
+Typescript > React 
+
+
+
+Docker: 
+
+Wrap this project in a docker 

@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+.env
+.DS_Store
+ios/build
+android/app/build
+android/.gradle
+*.log
+.vscode
+coverage
+__tests__

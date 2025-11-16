@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # React Native Metro Bundler
+  metro:
+    build: .
+    container_name: awareness-metro
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
+    command: npm start
+    networks:
+      - awareness-network
+
+  # Development environment (for running scripts, tests, etc.)
+  dev:
+    build: .
+    container_name: awareness-dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: tail -f /dev/null
+    networks:
+      - awareness-network
+
+networks:
+  awareness-network:
+    driver: bridge
+
+# Note: For iOS development on macOS:
+# 1. Install Xcode and CocoaPods on your host machine
+# 2. Run: cd ios && pod install
+# 3. Use docker-compose for the Metro bundler
+# 4. Build iOS app using Xcode or: npm run ios (on host)
